@@ -15,6 +15,7 @@ wpApp.controller('InfoCtrl', ['$scope', '$http', '$state',  '$stateParams', func
        $scope.UserWantList = $state.userInfoUserWantList;
        $scope.UserListStringify= JSON.stringify($scope.UserList);
        $scope.UserWantListStringify= JSON.stringify($scope.UserWantList);
+       $scope.phpURL=appInfo.template_directory + 'templates/process.php';
 
     $scope.sendMessage = function( input ) {
       input.submit = true;
@@ -203,7 +204,7 @@ wpApp.controller('SelectionCtrl', ['$scope', '$http','$state',  '$stateParams', 
 
 
 wpApp.config( function( $stateProvider, $urlRouterProvider){
-  $urlRouterProvider.otherwise('/selection');
+  // $urlRouterProvider.otherwise('/selection');
   $stateProvider
   .state( 'selection', {
       url: '/selection',
