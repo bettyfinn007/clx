@@ -65,6 +65,7 @@ wpApp.controller('SelectionCtrl', ['$scope', '$http','$state',  '$stateParams', 
     $scope.removeButtonShouldShow="false";
     $scope.removedItem;
     $scope.removeUserList=[];
+    $scope.file;
 
             //this imports the types
   $scope.allTypes=[];
@@ -120,12 +121,25 @@ wpApp.controller('SelectionCtrl', ['$scope', '$http','$state',  '$stateParams', 
       
     }
   };
+$scope.addFile = function() {
+    var f = document.getElementById('file').files[0],
+        r = new FileReader();
 
+    r.onloadend = function(e) {
+      var imgData = e.target.result;
+      $scope.file=imgData;//send your binary data via $http or $resource or do anything else with it
+    }
+
+    r.readAsBinaryString(f);
+    
+
+}
       //this updates the user data
   $scope.addItemTouserList=function() {
     for(var i=0;i<$scope.makeModel.length;i++){
       if($scope.makeModel[i].model===$scope.selectedModel&&$scope.makeModel[i].make===$scope.selectedMake){
         $scope.userList.push($scope.makeModel[i]);
+        // $scope.userList.push($scope.file);
         $scope.AddItemShouldShow=true;
         $scope.resetFormItems();
         break;

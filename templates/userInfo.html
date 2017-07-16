@@ -12,7 +12,7 @@
 
 <div class="selectBox col-lg-7 col-md-7 col-sm-12 col-xs-12">	
 <!-- <form  name="form" role="form" ng-submit="form.$valid " action="http://localhost:8888/wp-content/themes/clx/templates/process.php"> -->
-<form  name="form" role="form" ng-submit="form.$valid " action="{{phpURL}}">
+<form  method="post" name="form" role="form" ng-submit="form.$valid " action="{{phpURL}}">
 	<fieldset>
     	<div>
 			<label for="contactName">Name:</label><br> <input id="contactName" type="text" name="contactName" ng-model="input.contactName"/>
@@ -31,7 +31,7 @@
 			</div>
 		<div>
 			<div>
-			<label for="UserExchangeList">Items I Wish to Exchange</label><br> <textarea name="UserExchangeList" ng-model="input.UserExchangeList" value="{{UserListStringify}}">
+			<label for="UserExchangeList">Items I Wish to Exchange</label><br> <textarea name="UserExchangeList" ng-model="input.UserExchangeList" value="{{UserList}}">
 				<ul><li ng-repeat="item in UserList"><strong>{{item.make}}</strong> {{item.model}}</li>
 				<input type="text" value="{{song.name}}" name="songName" class="form-control" ng-model="songName" required/>
 				</ul>
@@ -40,7 +40,7 @@
 		<div>
 		<div>
 			<div>
-			<label for="UserWantInReturn">What I Want in Return</label><br> <textarea name="UserWantInReturn" ng-model="input.UserWantInReturn" value="{{UserWantListStringify}}">
+			<label for="UserWantInReturn">What I Want in Return</label><br> <textarea name="UserWantInReturn" ng-model="input.UserWantInReturn" value="{{UserWantList}}">
 			</textarea> 
 			</div>
 		<div>

@@ -19,7 +19,8 @@
 
 <div> <select class="formItem col-lg-10 col-md-10 col-sm-10 col-xs-10" ng-options="item for item in models | orderBy:'toString()'" ng-model="modelSelected.value" ng-change="updateModel(modelSelected.value)" ng-show="models.length>0"><option value="">Select Model</option>
 </select></div>
-
+<!-- <input type="file" id="file" name="file"/>
+<button ng-click="addFile()">Add</button> -->
  <div>
 <button class="formItem col-lg-4 col-md-4 col-sm-6 col-xs-6" ng-click="addItemTouserList()"  ng-show="AddItemShouldShow">Add Item</button>
 </div>
@@ -33,6 +34,7 @@
    <option  value="Instrumentation">Instrumentation</option>
    <option  value="Services">Services</option>
 </select>
+
    </div>
 
 <div>
