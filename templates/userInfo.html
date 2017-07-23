@@ -12,7 +12,7 @@
 <h1>Contact {{userWantList}}</h1>
 <p>We want your old equipment. One of our sales representatives will contact you about these items lorem ipsum dolor sit amet.</p>
 
-<div class="selectBox col-lg-7 col-md-7 col-sm-12 col-xs-12">	
+<div class="selectBox ">	
 <!-- <form  name="form" role="form" ng-submit="form.$valid " action="http://localhost:8888/wp-content/themes/clx/templates/process.php"> -->
 <form  method="post" name="form" role="form" ng-submit="form.$valid " action="{{phpURL}}">
 	<fieldset>
@@ -48,10 +48,10 @@
 		</div>
 	</form></div>
 
-<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+<div class="">
 <div class="cartContainer">
-	<div class="headerCart col-lg-12 col-md-12 col-sm-12 col-xs-12">My List</div>
-	<div class="boxCart col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="headerCart ">My List</div>
+	<div class="boxCart ">
 	<ul>
 	
 		<li ng-repeat="item in UserList"><strong>{{item.make}}</strong> {{item.model}}<br>{{item.comment}}</li>
@@ -61,11 +61,11 @@
 
 <div class="cartContainer">
 	<h5>In exchange for:</h5>
-	<div class="boxCart col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="boxCart ">
 	<ul>
 	<li ng-repeat="item in UserWantList"><strong>{{item}}</strong></li>
 		</ul></div>	
-		<div><a href="#/userInfo"><button class="checkoutButton col-lg-12 col-md-12 col-sm-12 col-xs-12"  ng-show="AddItemShouldShow" >Checkout</button></a></div>
+		<div><a href="#/userInfo"><button class="checkoutButton "  ng-show="AddItemShouldShow" >Checkout</button></a></div>
 </div>
 </div>
 

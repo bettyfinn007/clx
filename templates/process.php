@@ -1,8 +1,8 @@
 <?php
 Echo "<html>";
  Echo "<title>HTML with PHP</title>";
- Echo "<b>Thank You For Your Submission</b><br>";
- Echo "We will get back to you shortly.";
+ Echo "<div class=\"feedbackMessage\"><b>Thank You For Your Submission</b><br>";
+ Echo "We will get back to you shortly.</div>";
  Echo "</html>";
 // ini_set('display_errors', 'On');
 // error_reporting(E_ALL | E_STRICT);
@@ -38,13 +38,13 @@ foreach ($jsonIterator as $key => $val) {
     if(!is_array($val)) {
     
                 if($key=="type"){
-                $UserExchangeListAsString.="$key: $val\n";
+                $UserExchangeListAsString.="'Type': $val\n";
                 }else  if($key=="make"){
-                $UserExchangeListAsString.="$key: $val\n";
+                $UserExchangeListAsString.="'Make': $val\n";
                 }else if($key=="model"){
-                $UserExchangeListAsString.="$key: $val\n";
+                $UserExchangeListAsString.="'Model': $val\n";
                 }else if($key=="comment"){
-                $UserExchangeListAsString.="$key: $val\n\n";
+                $UserExchangeListAsString.="'Comment': $val\n\n";
                 }
         }
     }

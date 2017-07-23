@@ -10,29 +10,29 @@
 </div>
 
 
- <div class="selectBox col-lg-7 col-md-7 col-sm-12 col-xs-12">
-  <div> <select class="formItem col-lg-10 col-md-10 col-sm-10 col-xs-10" ng-options="item for item in types | orderBy:'toString()'" ng-model="typeSelected.value" ng-change="updateType(typeSelected.value)" id="typeSelect" ><option value="">Select Type</option>
+ <div class="selectBox ">
+  <div> <select class="formItem " ng-options="item for item in types | orderBy:'toString()'" ng-model="typeSelected.value" ng-change="updateType(typeSelected.value)" id="typeSelect" ><option value="">Select Type</option>
 </select></div>
  
-  <div> <select class="formItem col-lg-10 col-md-10 col-sm-10 col-xs-10" ng-options="item for item in makes | orderBy:'toString()'" ng-model="makeSelected.value" ng-change="updateMake(makeSelected.value)" ng-show="makes.length>0"><option value="">Select Make</option>
+  <div> <select class="formItem " ng-options="item for item in makes | orderBy:'toString()'" ng-model="makeSelected.value" ng-change="updateMake(makeSelected.value)" ng-show="makes.length>0"><option value="">Select Make</option>
 </select></div>
 
-<div> <select class="formItem col-lg-10 col-md-10 col-sm-10 col-xs-10" ng-options="item for item in models | orderBy:'toString()'" ng-model="modelSelected.value" ng-change="updateModel(modelSelected.value)" ng-show="models.length>0"><option value="">Select Model</option>
+<div> <select class="formItem " ng-options="item for item in models | orderBy:'toString()'" ng-model="modelSelected.value" ng-change="updateModel(modelSelected.value)" ng-show="models.length>0"><option value="">Select Model</option>
 </select></div>
-<div class="formItem col-lg-10 col-md-10 col-sm-10 col-xs-10" ng-show="selectedModel">
+<div class="formItem " ng-show="selectedModel">
 			<label for="comment">Comment:</label><br> <textarea name="comment" id="comment" ng-model="$parent.comment" ></textarea> 
 			</div>
 		<div>
 <!-- <input type="file" id="file" name="file"/>
 <button ng-click="addFile()">Add</button> -->
  <div>
-<button class="formItem col-lg-4 col-md-4 col-sm-6 col-xs-6" ng-click="addItemTouserList()"  ng-show="AddItemShouldShow">Add Item</button>
+<button class="formItem " ng-click="addItemTouserList()"  ng-show="AddItemShouldShow">Add Item</button>
 </div>
 	</div>
  
- <div class="selectBox col-lg-7 col-md-7 col-sm-12 col-xs-12">
+ <div class="selectBox ">
 <div><h4>What do you want in return:</h4></div>
- <div> <select class="formItem col-lg-10 col-md-10 col-sm-10 col-xs-10"  id="userWantSelect" 
+ <div> <select class="formItem "  id="userWantSelect" 
    ng-model="userWantSelected.value" ng-change="updateUserWant(userWantSelected.value)">
    <option selected="selected" value="Credit">Credit</option>
    <option  value="Instrumentation">Instrumentation</option>
@@ -42,15 +42,15 @@
    </div>
 
 <div>
-<button class="formItem col-lg-4 col-md-4 col-sm-6 col-xs-6" ng-click="addItemTouserWantList(userWantSelected.value)"  >Add Item</button>
+<button class="formItem " ng-click="addItemTouserWantList(userWantSelected.value)"  >Add Item</button>
 </div>
 	</div>
 
 
-<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+<div class="">
 <div class="cartContainer">
-	<div class="headerCart col-lg-12 col-md-12 col-sm-12 col-xs-12">My List</div>
-	<div class="boxCart col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="headerCart ">My List</div>
+	<div class="boxCart ">
 	<ul>
 	
 		<li ng-repeat="item in userList" ><input type="checkbox" ng-model="checked" ng-show="showItem(item.model)" ng-click="addToRemoveUserList(item, checked)"> <strong>{{item.make}}</strong> {{item.model}} <br>{{item.comment}}</li>
@@ -60,11 +60,11 @@
 
 <div class="cartContainer">
 	<h5>In exchange for:</h5>
-	<div class="boxCart col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="boxCart ">
 	<ul>
 	<li ng-repeat="item in userWantList"><input type="checkbox" ng-model="checked" ng-show="showItem(item)" ng-click="addToRemoveUserList(item, checked)"><strong>{{item}}</strong></li>
 		</ul></div>	
-		<div><button class="checkoutButton col-lg-12 col-md-12 col-sm-12 col-xs-12"  ng-show="AddItemShouldShow" ng-click="changeState()">Checkout</button>  <button class="removeButton col-lg-12 col-md-12 col-sm-12 col-xs-12"  ng-show="removeButtonShouldShow" ng-click="removeItem(removedItem)">Remove</button></div>
+		<div><button class="checkoutButton "  ng-show="AddItemShouldShow" ng-click="changeState()">Checkout</button>  <button class="removeButton "  ng-show="removeButtonShouldShow" ng-click="removeItem(removedItem)">Remove</button></div>
 </div>
 </div>
 	
