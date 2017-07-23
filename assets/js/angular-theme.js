@@ -59,6 +59,7 @@ wpApp.controller('SelectionCtrl', ['$scope', '$http','$state',  '$stateParams', 
     $scope.userWantList=[];
     $scope.selectedModel;
     $scope.selectedMake;
+    $scope.comment;
     $scope.newItemAdded=true;
     $scope.AddItemShouldShow=false;
     $scope.UserWant;
@@ -134,11 +135,20 @@ $scope.addFile = function() {
     
 
 }
+$scope.makeComment = function(comment){
+    $scope.comment=comment;
+}
       //this updates the user data
   $scope.addItemTouserList=function() {
     for(var i=0;i<$scope.makeModel.length;i++){
       if($scope.makeModel[i].model===$scope.selectedModel&&$scope.makeModel[i].make===$scope.selectedMake){
+        if($scope.comment!=null){
+           $scope.makeModel[i].comment=$scope.comment;
+
+        }
+
         $scope.userList.push($scope.makeModel[i]);
+        
         // $scope.userList.push($scope.file);
         $scope.AddItemShouldShow=true;
         $scope.resetFormItems();
@@ -165,11 +175,15 @@ $scope.addFile = function() {
     
     $scope.makes=[];
     $scope.models=[];
+    $scope.selectedMake=null;
+    $scope.selectedModel=null;
     var options = document.querySelectorAll('#typeSelect option');
+
       for (var i = 0, l = options.length; i < l; i++) {
       options[i].selected = options[i].defaultSelected;
       };
-
+   document.getElementById('comment').value = "";
+             // $scope.comment=null;
   };  
 
   $scope.addRemoveButton=function(indexItem){

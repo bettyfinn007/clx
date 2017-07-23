@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Contact Us</title>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 
 <body>
@@ -29,20 +31,18 @@
 		<div>
 			<label for="message">Message:</label><br> <textarea name="message" ng-model="input.message"></textarea> 
 			</div>
-		<div>
-			<div>
+		
+		<input type="hidden" name="UserExchangeList" value="{{UserList}}">
+		<input type="hidden" name="UserWantInReturn" value="{{UserWantList}}">
+			<!-- <div>
 			<label for="UserExchangeList">Items I Wish to Exchange</label><br> <textarea name="UserExchangeList" ng-model="input.UserExchangeList" value="{{UserList}}">
 				<ul><li ng-repeat="item in UserList"><strong>{{item.make}}</strong> {{item.model}}</li>
 				<input type="text" value="{{song.name}}" name="songName" class="form-control" ng-model="songName" required/>
 				</ul>
 			</textarea> 
-			</div>
-		<div>
-		<div>
-			<div>
-			<label for="UserWantInReturn">What I Want in Return</label><br> <textarea name="UserWantInReturn" ng-model="input.UserWantInReturn" value="{{UserWantList}}">
-			</textarea> 
-			</div>
+			</div> -->
+		
+		<div class="g-recaptcha" data-sitekey="6LecISoUAAAAAB_MRukTNsSIG0aN-2MpQplXonVU"></div>
 		<div>
 			<button type="submit" name="submit" value="submit">Submit</button>
 		</div>
@@ -54,7 +54,7 @@
 	<div class="boxCart col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<ul>
 	
-		<li ng-repeat="item in UserList"><strong>{{item.make}}</strong> {{item.model}}</li>
+		<li ng-repeat="item in UserList"><strong>{{item.make}}</strong> {{item.model}}<br>{{item.comment}}</li>
 		</ul></div>	
 		
 </div>

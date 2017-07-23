@@ -19,6 +19,10 @@
 
 <div> <select class="formItem col-lg-10 col-md-10 col-sm-10 col-xs-10" ng-options="item for item in models | orderBy:'toString()'" ng-model="modelSelected.value" ng-change="updateModel(modelSelected.value)" ng-show="models.length>0"><option value="">Select Model</option>
 </select></div>
+<div class="formItem col-lg-10 col-md-10 col-sm-10 col-xs-10" ng-show="selectedModel">
+			<label for="comment">Comment:</label><br> <textarea name="comment" id="comment" ng-model="$parent.comment" ></textarea> 
+			</div>
+		<div>
 <!-- <input type="file" id="file" name="file"/>
 <button ng-click="addFile()">Add</button> -->
  <div>
@@ -49,7 +53,7 @@
 	<div class="boxCart col-lg-12 col-md-12 col-sm-12 col-xs-12">
 	<ul>
 	
-		<li ng-repeat="item in userList" ><input type="checkbox" ng-model="checked" ng-show="showItem(item.model)" ng-click="addToRemoveUserList(item, checked)"> <strong>{{item.make}}</strong> {{item.model}} </li>
+		<li ng-repeat="item in userList" ><input type="checkbox" ng-model="checked" ng-show="showItem(item.model)" ng-click="addToRemoveUserList(item, checked)"> <strong>{{item.make}}</strong> {{item.model}} <br>{{item.comment}}</li>
 		</ul></div>	
 		
 </div>
