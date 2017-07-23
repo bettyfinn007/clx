@@ -13,7 +13,7 @@
 <p>We want your old equipment. One of our sales representatives will contact you about these items lorem ipsum dolor sit amet.</p>
 
 <div class="selectBox ">	
-<!-- <form  name="form" role="form" ng-submit="form.$valid " action="http://localhost:8888/wp-content/themes/clx/templates/process.php"> -->
+
 <form  method="post" name="form" role="form" ng-submit="form.$valid " action="{{phpURL}}">
 	<fieldset>
     	<div>
@@ -34,13 +34,7 @@
 		
 		<input type="hidden" name="UserExchangeList" value="{{UserList}}">
 		<input type="hidden" name="UserWantInReturn" value="{{UserWantList}}">
-			<!-- <div>
-			<label for="UserExchangeList">Items I Wish to Exchange</label><br> <textarea name="UserExchangeList" ng-model="input.UserExchangeList" value="{{UserList}}">
-				<ul><li ng-repeat="item in UserList"><strong>{{item.make}}</strong> {{item.model}}</li>
-				<input type="text" value="{{song.name}}" name="songName" class="form-control" ng-model="songName" required/>
-				</ul>
-			</textarea> 
-			</div> -->
+
 		
 		<div class="g-recaptcha" data-sitekey="6LecISoUAAAAAB_MRukTNsSIG0aN-2MpQplXonVU"></div>
 		<div>

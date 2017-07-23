@@ -5,11 +5,7 @@ var wpApp = new angular.module( 'wpAngularTheme', ['ui.router', 'ngResource'] );
 
 
 wpApp.controller('InfoCtrl', ['$scope', '$http', '$state',  '$stateParams', function( $scope, $http, $stateParams, $state) {
- //getting fooVal
-    // var inReturn = $stateParams.inReturn; //getting barVal
-    // //..
-    // $scope.state = $state.current;
-    // $scope.params = $stateParams; 
+
     
       $scope.UserList = $state.userInfoUserList; 
        $scope.UserWantList = $state.userInfoUserWantList;
@@ -22,7 +18,7 @@ wpApp.controller('InfoCtrl', ['$scope', '$http', '$state',  '$stateParams', func
       var processUrl='http://localhost:8888/#!/submit';
 
       console.log(processUrl);
-      // $http.post('process.php', {formData:angular.element.param(input)}).then(function(){console.log('HOLY SHIT IT SENT')});
+
       $http({
           method: 'POST',
           url: processUrl,
@@ -149,7 +145,7 @@ $scope.makeComment = function(comment){
 
         $scope.userList.push($scope.makeModel[i]);
         
-        // $scope.userList.push($scope.file);
+      
         $scope.AddItemShouldShow=true;
         $scope.resetFormItems();
         break;
@@ -183,7 +179,7 @@ $scope.makeComment = function(comment){
       options[i].selected = options[i].defaultSelected;
       };
    document.getElementById('comment').value = "";
-             // $scope.comment=null;
+      
   };  
 
   $scope.addRemoveButton=function(indexItem){
@@ -232,7 +228,7 @@ $scope.makeComment = function(comment){
 
 
 wpApp.config( function( $stateProvider, $urlRouterProvider){
-  // $urlRouterProvider.otherwise('/selection');
+
   $stateProvider
   .state( 'selection', {
       url: '/selection',
