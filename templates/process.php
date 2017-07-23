@@ -38,13 +38,13 @@ foreach ($jsonIterator as $key => $val) {
     if(!is_array($val)) {
     
                 if($key=="type"){
-                $UserExchangeListAsString.="'Type': $val\n";
+                $UserExchangeListAsString.="Type: $val\n";
                 }else  if($key=="make"){
-                $UserExchangeListAsString.="'Make': $val\n";
+                $UserExchangeListAsString.="Make: $val\n";
                 }else if($key=="model"){
-                $UserExchangeListAsString.="'Model': $val\n";
+                $UserExchangeListAsString.="Model: $val\n";
                 }else if($key=="comment"){
-                $UserExchangeListAsString.="'Comment': $val\n\n";
+                $UserExchangeListAsString.="Comment: $val\n\n";
                 }
         }
     }
