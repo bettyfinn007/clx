@@ -32,12 +32,27 @@
  
  <div class="selectBox ">
 <div><h4>What do you want in return:</h4></div>
- <div> <select class="formItem "  id="userWantSelect" 
+ <div> 
+ 	<select class="formItem "  id="userWantSelect" 
    ng-model="userWantSelected.value" ng-change="updateUserWant(userWantSelected.value)">
-   <option selected="selected" value="Credit">Credit</option>
-   <option  value="Instrumentation">Instrumentation</option>
-   <option  value="Services">Services</option>
-</select>
+    <option value="">Select</option>
+    <option value="Credit">Credit</option>
+    <option  ng-model="InstrumentationSelected" value="Instrumentation" >Instrumentation</option>
+	<option  value="Services">Services</option>
+</select></div>
+
+    <div class="selectBox " ng-show="userWantSelected.value=='Instrumentation'">
+  <div> <select class="formItem " ng-options="item for item in types | orderBy:'toString()'" ng-model="InstrumentTypeSelected.value" ng-change="updateInstrumentType(InstrumentTypeSelected.value)" id="typeSelect" ><option value="">Select Type</option>
+</select></div>
+ 
+  <div> <select class="formItem " ng-options="item for item in InstrumentMakes | orderBy:'toString()'" ng-model="InstrumentMakeSelected.value" ng-change="updateInstrumentMake(InstrumentMakeSelected.value)" ng-show="InstrumentMakes.length>0"><option value="">Select Make</option>
+</select></div>
+
+<div> <select class="formItem " ng-options="item for item in InstrumentModels | orderBy:'toString()'" ng-model="InstrumentModelSelected.value" ng-change="updateInstrumentModel(InstrumentModelSelected.value)" ng-show="InstrumentModels.length>0"><option value="">Select Model</option>
+</select></div>
+</div>
+		<div>
+ 
 
    </div>
 

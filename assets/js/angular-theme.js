@@ -63,13 +63,20 @@ wpApp.controller('SelectionCtrl', ['$scope', '$http','$state',  '$stateParams', 
     $scope.removedItem;
     $scope.removeUserList=[];
     $scope.file;
+    $scope.InstrumentationSelected=false;
+
+    $scope.InstrumentMakes;
+    $scope.InstrumentModels;
+    $scope.selectedInstrumentMake;
+    $scope.selectedInstrumentModel;
+
 
             //this imports the types
   $scope.allTypes=[];
   for(var i=0;i<$scope.makeModel.length;i++){
     $scope.allTypes.push($scope.makeModel[i].type);
 
-  }
+  };
 
     $scope.types=unique($scope.allTypes);
   $scope.updateType=function(typeselected) {
@@ -85,12 +92,18 @@ wpApp.controller('SelectionCtrl', ['$scope', '$http','$state',  '$stateParams', 
     }
   };
 
+$scope.setInstrumentation=function() {
+  $scope.InstrumentationSelected=true;
+};
+
+
+
     function unique(someArray) {
       var o = {}, i, l = someArray.length, r = [];
       for(i=0; i<l;i+=1) {o[someArray[i]] = someArray[i];}
       for(i in o) {r.push(o[i]);}
       return r;
-  }
+  };
 
     //updates the models in the array
   $scope.updateMake=function(makeselected) {
@@ -108,6 +121,7 @@ wpApp.controller('SelectionCtrl', ['$scope', '$http','$state',  '$stateParams', 
     
   };
 
+
   $scope.updateModel=function(modelSelected) {
     for(i=0;i<$scope.models.length;i++){
       if($scope.models[i]===modelSelected){
@@ -118,6 +132,47 @@ wpApp.controller('SelectionCtrl', ['$scope', '$http','$state',  '$stateParams', 
       
     }
   };
+
+
+$scope.updateInstrumentType=function(typeselected) {
+
+    $scope.InstrumentMakes=[];
+
+    for(i=0;i<$scope.makeModel.length;i++){
+      
+      if($scope.makeModel[i].type===typeselected) {
+        $scope.InstrumentMakes.push($scope.makeModel[i].make);
+        }
+      $scope.InstrumentMakes=unique($scope.InstrumentMakes);
+    }
+  };
+
+    $scope.updateInstrumentMake=function(makeselected) {
+    $scope.selectedInstrumentMake=makeselected;
+    $scope.InstrumentModels=[];
+
+    for(i=0;i<$scope.makeModel.length;i++){
+      
+      if($scope.makeModel[i].make===makeselected) {
+        $scope.InstrumentModels.push($scope.makeModel[i].model);
+      }
+
+    }
+    $scope.InstrumentModels=unique($scope.InstrumentModels);
+    
+  };
+
+    $scope.updateInstrumentModel=function(modelSelected) {
+      $scope.selectedInstrumentModel=modelSelected;
+    for(i=0;i<$scope.InstrumentModels.length;i++){
+      if($scope.InstrumentModels[i]===modelSelected){
+      $scope.selectedInstrumentModel=$scope.InstrumentModels[i];
+      break;
+      }
+      
+    }
+  };
+
 $scope.addFile = function() {
     var f = document.getElementById('file').files[0],
         r = new FileReader();
@@ -161,26 +216,53 @@ $scope.makeComment = function(comment){
   };    
         //this updates the user data
   $scope.addItemTouserWantList=function() {
+    if ($scope.userWant==="Instrumentation")
+    {
+          for(var i=0;i<$scope.makeModel.length;i++){
+      if($scope.makeModel[i].model===$scope.selectedInstrumentModel&&$scope.makeModel[i].make===$scope.selectedInstrumentMake){
+        
 
+        $scope.userWantList.push("Instrumentation: "+$scope.selectedInstrumentMake+" "+$scope.selectedInstrumentModel);
+        
+        $scope.resetFormItems();
+        break;
+      }
+      
+    }
+    }else{
       $scope.userWantList.push($scope.userWant);
+    }
+    
 
   };  
 
 
   $scope.resetFormItems=function() {
     
+    $scope.InstrumentMakes=[];
+    $scope.InstrumentModels=[];
+    $scope.selectedInstrumentMake=null;
+    $scope.selectedInstrumentModel=null;
     $scope.makes=[];
     $scope.models=[];
     $scope.selectedMake=null;
     $scope.selectedModel=null;
     var options = document.querySelectorAll('#typeSelect option');
+    var userWantoptions = document.querySelectorAll('#userWantSelect option');
 
       for (var i = 0, l = options.length; i < l; i++) {
       options[i].selected = options[i].defaultSelected;
       };
    document.getElementById('comment').value = "";
       
-  };  
+
+
+        for (var i = 0, l = userWantoptions.length; i < l; i++) {
+      userWantoptions[i].selected = userWantoptions[i].defaultSelected;
+      };
+
+      
+  };
 
   $scope.addRemoveButton=function(indexItem){
     $scope.removeButtonShouldShow="true";
