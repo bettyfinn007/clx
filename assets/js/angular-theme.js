@@ -76,7 +76,7 @@ wpApp.controller('SelectionCtrl', ['$scope', '$http','$state',  '$stateParams', 
   for(var i=0;i<$scope.makeModel.length;i++){
     $scope.allTypes.push($scope.makeModel[i].type);
 
-  };
+  }
 
     $scope.types=unique($scope.allTypes);
   $scope.updateType=function(typeselected) {
@@ -103,7 +103,7 @@ $scope.setInstrumentation=function() {
       for(i=0; i<l;i+=1) {o[someArray[i]] = someArray[i];}
       for(i in o) {r.push(o[i]);}
       return r;
-  };
+  }
 
     //updates the models in the array
   $scope.updateMake=function(makeselected) {
@@ -337,6 +337,7 @@ wpApp.config( function( $stateProvider, $urlRouterProvider){
             formData: null
         }
     })
+      $urlRouterProvider.otherwise('/selection');
 });
 
 
